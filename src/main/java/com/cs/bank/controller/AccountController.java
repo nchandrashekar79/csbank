@@ -20,9 +20,7 @@ public class AccountController {
 
     @GetMapping("person")
     public Person getPerson() {
-        Date dateOfBirth = new Date();
-        Person person = new Person("Doe", "John", dateOfBirth, "john.doe@example.com", "1234567890", "123 Main St", "1234567890");
-        return person;
+      return null;
     }
 
     @PostMapping("person")
