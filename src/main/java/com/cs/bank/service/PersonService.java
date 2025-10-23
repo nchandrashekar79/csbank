@@ -2,6 +2,8 @@ package com.cs.bank.service;
 
 import com.cs.bank.entity.Person;
 import com.cs.bank.repository.PersonRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,8 @@ import org.springframework.stereotype.Service;
 public class PersonService {
     @Autowired
     private PersonRepository personRepository;
+
+    private static final Logger logger = LoggerFactory.getLogger(PersonService.class);
 
     public Person createPerson(Person person) {
         return personRepository.save(person);

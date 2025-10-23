@@ -17,13 +17,6 @@ public class AccountController {
 
     private static final Logger logger = LoggerFactory.getLogger(AccountController.class);
 
-    @GetMapping("persontest")
-    public Person getPersonTest() {
-        Date dateOfBirth = new Date();
-        Person person = new Person("Doe", "John", dateOfBirth, "john.doe@example.com", "1234567890", "123 Main St", "1234567890");
-        return person;
-    }
-
     @GetMapping("person/{personId}")
     public Person getPerson(@PathVariable Long personId) {
       return personService.getPerson(personId);
@@ -36,15 +29,6 @@ public class AccountController {
         Person createdPerson = personService.createPerson(new Person());
         logger.info("Created person: {}", createdPerson);
         return createdPerson;
-    }
-
-    @GetMapping("personcreate")
-    public void createAccountTest() {
-        Date dateOfBirth = new Date();
-        Person person = new Person("Doe", "John", dateOfBirth, "john.doe@example.com", "1234567890", "123 Main St", "1234567890");
-        Person createdPerson = personService.createPerson(person);
-        logger.info("Created person: {}", createdPerson.getPersonId());
-
     }
 
     @PutMapping("person")
@@ -60,6 +44,22 @@ public class AccountController {
     }
     @GetMapping("search")
     public void searchAccount(){
+
+    }
+//Test methods
+    @GetMapping("persontest")
+    public Person getPersonTest() {
+        Date dateOfBirth = new Date();
+        Person person = new Person("Doe", "John", dateOfBirth, "john.doe@example.com", "1234567890", "123 Main St", "1234567890");
+        return person;
+    }
+
+    @GetMapping("personcreatetest")
+    public void createAccountTest() {
+        Date dateOfBirth = new Date();
+        Person person = new Person("Doe", "John", dateOfBirth, "john.doe@example.com", "1234567890", "123 Main St", "1234567890");
+        Person createdPerson = personService.createPerson(person);
+        logger.info("Created person: {}", createdPerson.getPersonId());
 
     }
 }
