@@ -1,9 +1,12 @@
 # csbank
 
+- http://localhost:8080/h2-console
+- http://localhost:8080/swagger-ui/index.html
+
 - [x] Task 1: Implement Account controller
 - [ ] Task 2: Implement core functionality
 - [ ] Task 3: Write unit tests
-- [ ] Task 4: Implement swagger
+- [x] Task 4: Implemented swagger 2.5.0
 - [ ] Task 5: Add dockerfile
 - [ ] Task 6: switch to postgress database
 - [ ] Task 7: Add UI
