@@ -14,7 +14,7 @@ reference: https://www.red-gate.com/blog/database-design-for-banking-system
 - [ ] Task 7: Add UI
 - [ ] Task 8: Add Junit test cases
 - [ ] Task 9: Add Cucumber test cases
-- [ ] Task 10: Spring actuator
+- [ ] Task 10: Add preload data into database 
 - [ ] Task 11: Spring actuator
 - [ ] Task 12: custom query execute
 - [ ] Task 13: Spring Authentication
@@ -28,6 +28,7 @@ reference: https://www.red-gate.com/blog/database-design-for-banking-system
 - [ ] Task 21: Add mangodb or any document database
 - [ ] Task 22: Add scheduler
 - [ ] Task 23: Add Spring batch
+- [ ] Task 24: Add cache redis or any other
 
 
 
