@@ -3,6 +3,8 @@
 - http://localhost:8080/h2-console
 - http://localhost:8080/swagger-ui/index.html
 
+reference: https://www.red-gate.com/blog/database-design-for-banking-system
+
 - [x] Task 1: Implement Account controller
 - [ ] Task 2: Implement core functionality
 - [ ] Task 3: Write unit tests
