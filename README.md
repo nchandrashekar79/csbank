@@ -9,7 +9,7 @@ reference: https://www.red-gate.com/blog/database-design-for-banking-system
 - [ ] Task 2: Implement core functionality
 - [ ] Task 3: Use resttemplate or feign client to call rest api
 - [x] Task 4: Implemented swagger 2.5.0
-- [ ] Task 5: Add dockerfile
+- [x] Task 5: Add dockerfile
 - [ ] Task 6: switch to postgress database
 - [ ] Task 7: Add UI
 - [ ] Task 8: Add Junit test cases
