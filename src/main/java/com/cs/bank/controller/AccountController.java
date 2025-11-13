@@ -27,7 +27,7 @@ public class AccountController {
 
     @PostMapping("person")
     public Person createAccount() {
-        Date dateOfBirth = new Date();
+       // Date dateOfBirth = new Date();
        // Person person = new Person("Doe", "John", dateOfBirth, "john.doe@example.com", "1234567890", "123 Main St", "1234567890");
         Person createdPerson = personService.createPerson(new Person());
         logger.info("Created person: {}", createdPerson);
@@ -88,20 +88,19 @@ public List<Person> searchAccount(){
         Person createdPerson = personService.createPerson(person);
         logger.info("Created person: {}", createdPerson.getPersonId());
 
+    } 
+@PostMapping(value = "persons/batch", produces = "application/json")
+public List<Person> createPersons(@RequestBody List<Person> persons) {
+    persons.forEach(p -> {
+        Person createdPerson = personService.createPerson(p);
+        logger.info("Created person: {}", createdPerson.getPersonId());
+    });
+    return persons;
     }
 
-    @PostMapping("personcreatetest1")
-    public void createAccountTest1() {
-        Date dateOfBirth = new Date();
-        Person person = new Person("Doe", "John", dateOfBirth, "john.doe@example.com", "1234567890", "123 Main St", "1234567890");
-        Person person1 = new Person("vinod", "narra", dateOfBirth, "vinod.narra@example.com", "1122334556", "234 Main St", "1234567890");
-        Person person2 = new Person("Alice", "Smith", dateOfBirth, "alice.smith@example.com", "9988776655", "345 Main St", "0987654321");
-        java.util.List<Person> persons = java.util.Arrays.asList(person, person1, person2);
-        // create the additional persons now (the original 'person' will be created by the existing call below)
-        
-        for (Person p : persons) {
-            Person createdPerson = personService.createPerson(p);
-            logger.info("Created person: {}", createdPerson.getPersonId()); 
-    }
+
+@PostMapping("/savePerson")
+public Person savePerson(@RequestBody Person personDto) {
+    return personService.createPerson(personDto);
 }
 }
