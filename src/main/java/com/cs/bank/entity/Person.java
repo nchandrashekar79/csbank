@@ -1,10 +1,20 @@
 package com.cs.bank.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "persons")
 public class Person {
 
@@ -13,18 +23,26 @@ public class Person {
     private Long personId;
 
     @Column(nullable = false, length = 100)
+    @NotBlank(message  = "Last name is mandatory")
+    @Size(min = 2 ,max = 100)
     private String lastName;
 
     @Column(nullable = false, length = 100)
+    @NotBlank(message  = "First name is mandatory")
+    @Size(min = 2 ,max = 100)
     private String firstName;
 
     @Column(nullable = false)
     private Date dateOfBirth;
 
     @Column(nullable = false, length = 100)
+    @Email(message = "Email should be valid")
+    @NotBlank(message  = "Email is mandatory")
     private String email;
 
     @Column(nullable = false, length = 20)
+    @Pattern(regexp = "\\d{10}", message = "Phone number must be 10 digits")
+    @NotBlank(message  = "Phone number is mandatory")
     private String phoneNumber;
 
     @Column(nullable = false, length = 100)
@@ -34,8 +52,7 @@ public class Person {
     private String taxIdentifier;
 
     // Constructors, getters, and setters
-
-    public Person() {}
+    // Constructors, getters, and setters
 
     public Person(String lastName, String firstName, Date dateOfBirth, String email, String phoneNumber, String address, String taxIdentifier) {
         this.lastName = lastName;
@@ -112,4 +129,9 @@ public class Person {
     public void setTaxIdentifier(String taxIdentifier) {
         this.taxIdentifier = taxIdentifier;
     }
+
+    
+    @Version
+    @Column(name = "version")
+    private Long version;
 }
