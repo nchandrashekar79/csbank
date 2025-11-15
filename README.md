@@ -30,7 +30,8 @@ reference: https://www.red-gate.com/blog/database-design-for-banking-system
 - [ ] Task 23: Add scheduler
 - [ ] Task 24: Add Spring batch
 - [ ] Task 25: Add cache redis or any other
-
+- [x] Task 26: Validation for post method object
+- [x] Task 27: list of object save in database
 
 
 

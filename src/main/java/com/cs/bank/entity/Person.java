@@ -32,7 +32,7 @@ public class Person {
     @Size(min = 2 ,max = 100)
     private String firstName;
 
-    @Column(nullable = false)
+
     private Date dateOfBirth;
 
     @Column(nullable = false, length = 100)
@@ -45,10 +45,9 @@ public class Person {
     @NotBlank(message  = "Phone number is mandatory")
     private String phoneNumber;
 
-    @Column(nullable = false, length = 100)
+
     private String address;
 
-    @Column(nullable = false, length = 20)
     private String taxIdentifier;
 
     // Constructors, getters, and setters

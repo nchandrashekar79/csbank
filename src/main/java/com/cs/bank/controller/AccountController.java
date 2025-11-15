@@ -2,6 +2,7 @@ package com.cs.bank.controller;
 
 import com.cs.bank.entity.Person;
 import com.cs.bank.service.PersonService;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,87 +21,64 @@ public class AccountController {
     private static final Logger logger = LoggerFactory.getLogger(AccountController.class);
 
     @GetMapping("person/{personId}")
-
     public Person getPerson(@PathVariable Long personId) {
-      return personService.getPerson(personId);
+        return personService.getPerson(personId);
+    }
+    @GetMapping("persons")
+    public List<Person> getAllPersons() {
+        return (List<Person>) personService.getAllPersons();
     }
 
-    @PostMapping("person")
-    public Person createAccount() {
-       // Date dateOfBirth = new Date();
-       // Person person = new Person("Doe", "John", dateOfBirth, "john.doe@example.com", "1234567890", "123 Main St", "1234567890");
-        Person createdPerson = personService.createPerson(new Person());
-        logger.info("Created person: {}", createdPerson);
-        return createdPerson;
-    }
 
-    
-@PutMapping("person/{id}")
-public ResponseEntity<Person> updateAccount(@PathVariable Long id, @RequestBody Person updatedPerson) {
-Person existing = personService.getPerson(id);
-if (existing == null) {
-    return ResponseEntity.notFound().build();
-}
-updatedPerson.setPersonId(id);
-personService.updatePerson(updatedPerson);
-logger.info("Updated person: {}", updatedPerson);
-return ResponseEntity.ok(updatedPerson);
-                
- }
-
-@PutMapping("persons/{id}")
-public void updatedPersonDetails(Person updatedPerson) {
-    personService.updatePerson(updatedPerson);
-    logger.info("Updated person: {}", updatedPerson);
-}
-
- 
-@DeleteMapping("person/{id}")
-public void deleteAccount(@PathVariable Long id) {
-        personService.deletePerson(id);
-   }
-
-@GetMapping("search")
-public List<Person> searchAccount(){
-    List<Person> getALLpersonsDetails = (List<Person>) personService.getAllPersons();
-    if (getALLpersonsDetails != null && !getALLpersonsDetails.isEmpty()) {
-        for (Person person : getALLpersonsDetails) {
-            logger.info("Person Details: {}", person);
+    @PutMapping("person/{id}")
+    public ResponseEntity<Person> updateAccount(@PathVariable Long id, @RequestBody Person updatedPerson) {
+        Person existing = personService.getPerson(id);
+        if (existing == null) {
+            return ResponseEntity.notFound().build();
         }
-    } else {
-        logger.info("No person records found.");
-    }
-    return getALLpersonsDetails;
-}
-//Test methods
-    @GetMapping("persontest")
-    public Person getPersonTest() {
-        Date dateOfBirth = new Date();
-        Person person = new Person("Doe", "John", dateOfBirth, "john.doe@example.com", "1234567890", "123 Main St", "1234567890");
-        return person;
+        updatedPerson.setPersonId(id);
+        personService.updatePerson(updatedPerson);
+        logger.info("Updated person: {}", updatedPerson);
+        return ResponseEntity.ok(updatedPerson);
+
     }
 
-    @PostMapping("personcreatetest")
-    public void createAccountTest() {
-        Date dateOfBirth = new Date();
-        Person person = new Person("Doe", "John", dateOfBirth, "john.doe@example.com", "1234567890", "123 Main St", "1234567890");
-        //Person person1 = new Person("Doe", "John", dateOfBirth, "john.doe@example.com", "1234567890", "123 Main St", "1234567890");
-        Person createdPerson = personService.createPerson(person);
-        logger.info("Created person: {}", createdPerson.getPersonId());
-
-    } 
-@PostMapping(value = "persons/batch", produces = "application/json")
-public List<Person> createPersons(@RequestBody List<Person> persons) {
-    persons.forEach(p -> {
-        Person createdPerson = personService.createPerson(p);
-        logger.info("Created person: {}", createdPerson.getPersonId());
-    });
-    return persons;
+    @PutMapping("persons/{id}")
+    public void updatedPersonDetails(Person updatedPerson) {
+        personService.updatePerson(updatedPerson);
+        logger.info("Updated person: {}", updatedPerson);
     }
 
 
-@PostMapping("/savePerson")
-public Person savePerson(@RequestBody Person personDto) {
-    return personService.createPerson(personDto);
-}
+    @DeleteMapping("person/{id}")
+    public void deleteAccount(@PathVariable Long id) {
+        personService.deletePerson(id);
+    }
+
+    @GetMapping("person/search")
+    public List<Person> searchAccount() {
+        List<Person> getALLpersonsDetails = (List<Person>) personService.getAllPersons();
+        if (getALLpersonsDetails != null && !getALLpersonsDetails.isEmpty()) {
+            for (Person person : getALLpersonsDetails) {
+                logger.info("Person Details: {}", person);
+            }
+        } else {
+            logger.info("No person records found.");
+        }
+        return getALLpersonsDetails;
+    }
+
+
+
+    @PostMapping(value = "persons", produces = "application/json")
+    public void createPersons(@RequestBody @Valid List<Person> persons) {
+      personService.saveAll(persons);
+
+    }
+
+
+    @PostMapping("/person")
+    public Person savePerson(@RequestBody  @Valid Person personDto) {
+        return personService.createPerson(personDto);
+    }
 }
