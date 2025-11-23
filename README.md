@@ -8,9 +8,9 @@ reference: https://www.red-gate.com/blog/database-design-for-banking-system
 - [x] Task 1: Implement Account controller
 - [x] Task 2: Implemented swagger 2.5.0
 - [x] Task 3: Add dockerfile
-- [ ] Task 4: Implement core functionality
+- [] Task 4: Implement core functionality
 - [ ] Task 5: Use resttemplate or feign client to call rest api
-- [ ] Task 6: Pre load data into database from sql file
+- [x] Task 6: Pre load data into database from sql file
 - [ ] Task 7: switch to postgress database
 - [ ] Task 8: Add UI
 - [ ] Task 9: Add Junit test cases
@@ -18,7 +18,7 @@ reference: https://www.red-gate.com/blog/database-design-for-banking-system
 - [ ] Task 11: Add preload data into database 
 - [ ] Task 12: Spring actuator new end points
 - [ ] Task 13: custom query execute
-- [ ] Task 14: Spring Authentication
+- [ ] Task 14: Spring Authentication creation token and validation
 - [ ] Task 15: Spring debuger
 - [ ] Task 16: Java upgrade to 21 or 25
 - [ ] Task 17: new Java features 
@@ -32,6 +32,13 @@ reference: https://www.red-gate.com/blog/database-design-for-banking-system
 - [ ] Task 25: Add cache redis or any other
 - [x] Task 26: Validation for post method object
 - [x] Task 27: list of object save in database
+- [ ] Task 28: Sending plan email
+- [ ] Task 29: sending template email
+- [ ] Task 30: Uploading files to server
+- [ ] Task 31: Downloading files from server
+- [ ] Task 32: Schedulers
+- [ ] Task 33: Batch processing
+
 
 
 

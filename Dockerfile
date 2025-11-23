@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk
+FROM openjdk:17
 VOLUME /tmp
 ADD target/csbank-0.0.1-SNAPSHOT.jar csbank.jar
 
