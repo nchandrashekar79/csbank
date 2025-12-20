@@ -13,9 +13,9 @@ reference: https://www.red-gate.com/blog/database-design-for-banking-system
 - [x] Task 6: Pre load data into database from sql file
 - [ ] Task 7: switch to postgress database
 - [ ] Task 8: Add UI
-- [ ] Task 9: Add Junit test cases
-- [ ] Task 10: Add Cucumber test cases
-- [ ] Task 11: Add preload data into database 
+- [x] Task 9: Add Junit test cases
+- [] Task 10: Add Cucumber test cases
+- [x] Task 11: Add preload data into database 
 - [ ] Task 12: Spring actuator new end points
 - [ ] Task 13: custom query execute
 - [ ] Task 14: Spring Authentication creation token and validation
